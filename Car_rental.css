@@ -1,0 +1,773 @@
+/* =========================================
+   Colours (change them here once)
+========================================= */
+:root {
+    --black: #1d1d1f;     /* main text, Apple-style near-black */
+    --grey-text: #515154; /* secondary text, still easy to read */
+    --grey-bg: #f5f5f7;   /* light grey section background */
+    --green: #00a86b;     /* AZoom EV brand colour */
+    --green-dark: #008f5a;
+    --white: #ffffff;
+    --border: #d2d2d7;
+}
+
+/* =========================================
+   Global & Reset
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', Arial, sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+section {
+    padding: 6rem 10%;
+    text-align: center;
+}
+
+.grey {
+    background-color: var(--grey-bg);
+}
+
+section h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.section-sub {
+    font-size: 1.3rem;
+    color: var(--grey-text);
+    margin: 0.5rem 0 3.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--green-dark);
+}
+
+.btn-small {
+    padding: 0.55rem 1.3rem;
+    font-size: 0.95rem;
+}
+
+.link {
+    color: var(--green-dark);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   Header (thin bar that stays on top)
+========================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 10%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.logo span {
+    color: var(--green);
+    margin-left: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 2.2rem;
+}
+
+nav a {
+    color: var(--black);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.login {
+    color: var(--green-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   Hero
+========================================= */
+.hero {
+    padding: 8rem 10% 6rem;
+}
+
+.eyebrow {
+    color: var(--green-dark);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    animation: fadeUp 0.9s ease both;
+}
+
+.hero-sub {
+    max-width: 640px;
+    margin: 1.5rem auto 2.5rem;
+    font-size: 1.4rem;
+    color: var(--grey-text);
+}
+
+.hero-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.stats strong {
+    display: block;
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.stats span {
+    color: var(--grey-text);
+}
+
+/* =========================================
+   How It Works
+========================================= */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.step {
+    padding: 2.5rem 1.8rem;
+    background-color: var(--white);
+    border-radius: 20px;
+    text-align: left;
+}
+
+.num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.step p {
+    color: var(--grey-text);
+}
+
+/* =========================================
+   Fleet
+========================================= */
+.car_grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.car {
+    flex: 0 1 calc(33.333% - 1rem);
+    padding: 2rem;
+    background-color: var(--grey-bg);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.car:hover {
+    transform: scale(1.02);
+}
+
+.car-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    background-color: #e8e8ed; /* shows until a photo is added */
+}
+
+.car-type {
+    color: var(--green-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.car h3 {
+    font-size: 1.7rem;
+    margin: 0.2rem 0;
+}
+
+.car-specs {
+    color: var(--grey-text);
+}
+
+.car-price {
+    margin: 1rem 0 1.2rem;
+    font-size: 1.1rem;
+}
+
+.car-price strong {
+    font-size: 1.4rem;
+}
+
+/* Available / Rented label on each car */
+.status {
+    display: inline-block;
+    margin-top: 0.6rem;
+    padding: 0.15rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status.available {
+    background-color: #e3f6ee;
+    color: var(--green-dark);
+}
+
+.status.rented {
+    background-color: #fde8e8;
+    color: #c0392b;
+}
+
+.btn-disabled,
+.btn-disabled:hover {
+    background-color: #c7c7cc;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   Promotions
+========================================= */
+.promo_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.promo {
+    padding: 2.5rem 2rem;
+    background-color: var(--white);
+    border-radius: 20px;
+    text-align: left;
+}
+
+.promo-tag {
+    color: #d70015;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.promo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.promo p:last-child {
+    color: var(--grey-text);
+}
+
+/* =========================================
+   Car Parks
+========================================= */
+.carpark_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.carpark {
+    padding: 1.8rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: border-color 0.2s ease;
+}
+
+.carpark:hover {
+    border-color: var(--green);
+}
+
+.carpark h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+}
+
+.carpark p {
+    color: var(--grey-text);
+    font-size: 0.95rem;
+}
+
+.carpark .chargers {
+    margin-top: 0.8rem;
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+.office {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: var(--grey-bg);
+    text-align: left;
+}
+
+.office h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.office p {
+    margin-bottom: 0.5rem;
+    color: var(--grey-text);
+}
+
+.office-map {
+    width: 100%;
+    height: 320px;
+    border: none;
+    border-radius: 16px;
+}
+
+/* =========================================
+   Testimonials
+========================================= */
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.testimonial {
+    padding: 2.5rem 2rem;
+    background-color: var(--white);
+    border-radius: 20px;
+    text-align: left;
+}
+
+.stars {
+    color: #f5a623;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+
+.testimonial h3 {
+    font-size: 1rem;
+    color: var(--grey-text);
+}
+
+/* =========================================
+   Footer
+========================================= */
+footer {
+    padding: 3rem 10% 2rem;
+    background-color: var(--grey-bg);
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer-container h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-container p,
+.footer-container a {
+    color: var(--grey-text);
+}
+
+.footer-container ul {
+    list-style: none;
+}
+
+.footer-container li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-container a:hover {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+.copyright {
+    padding-top: 1.5rem;
+    color: var(--grey-text);
+}
+
+/* =========================================
+   Reserve Page
+========================================= */
+nav a.current {
+    color: var(--green);
+    font-weight: 600;
+}
+
+.page-title {
+    padding: 5rem 10% 0;
+}
+
+.page-title h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.page-title .section-sub {
+    margin-bottom: 0;
+}
+
+.reserve-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding-top: 3rem;
+    text-align: left;
+}
+
+.reserve-form fieldset {
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--grey-bg);
+}
+
+.reserve-form legend {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.reserve-form legend ~ * {
+    clear: both;
+}
+
+.reserve-form label {
+    display: block;
+    margin: 0.9rem 0 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.reserve-form input,
+.reserve-form select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--white);
+    color: var(--black);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.reserve-form input:focus,
+.reserve-form select:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.2);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.hint {
+    margin-top: 0.8rem;
+    color: var(--grey-text);
+    font-size: 0.9rem;
+}
+
+.form-error {
+    min-height: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #d70015;
+    font-weight: 600;
+}
+
+.btn-full {
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.summary {
+    position: sticky;
+    top: 80px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.summary-img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    background-color: var(--grey-bg);
+}
+
+.summary h2 {
+    font-size: 1.9rem;
+}
+
+.summary-lines {
+    margin-top: 1.5rem;
+}
+
+.summary-lines div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.summary-lines dt {
+    color: var(--grey-text);
+}
+
+.summary-lines dd {
+    font-weight: 600;
+}
+
+.summary-total {
+    font-size: 1.3rem;
+    border-bottom: none !important;
+}
+
+.summary-total dt {
+    color: var(--black) !important;
+    font-weight: 700;
+}
+
+.confirmation {
+    padding: 5rem 10%;
+}
+
+.confirm-card {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 3rem;
+    border-radius: 24px;
+    background-color: var(--grey-bg);
+    animation: fadeUp 0.6s ease both;
+}
+
+.confirm-tick {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.confirm-card .section-sub {
+    margin: 0.5rem 0 0;
+}
+
+.booking-id {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--green-dark);
+}
+
+.confirm-card .summary-lines {
+    text-align: left;
+}
+
+.confirm-card .btn {
+    margin-top: 1.5rem;
+}
+
+/* =========================================
+   Animation
+========================================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   Rent Page
+========================================= */
+.reserve-form .check-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.reserve-form .check-label input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--green);
+}
+
+/* =========================================
+   Return Page
+========================================= */
+.park-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.reserve-form .park-option {
+    display: block;
+    margin: 0;
+    padding: 1.2rem;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.reserve-form .park-option input {
+    display: none;
+}
+
+.reserve-form .park-option:has(input:checked) {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.2);
+}
+
+.park-option strong {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.park-option span {
+    display: block;
+    color: var(--grey-text);
+    font-weight: 400;
+}
+
+.park-option .chargers {
+    margin-top: 0.5rem;
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+/* =========================================
+   Payment Page
+========================================= */
+#bill-notes {
+    margin-bottom: 1.2rem;
+}
